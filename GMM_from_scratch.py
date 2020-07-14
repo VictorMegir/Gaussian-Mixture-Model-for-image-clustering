@@ -86,7 +86,7 @@ class GMM:
         
     def E_Step(self, data_points):
         '''
-        The Estimation step of the EM algorithm. This step calculates the responsibility
+        The Expectation step of the EM algorithm. This step calculates the responsibility
         of each datapoint for each cluster. What is the propability that each of
         the datapoints belongs to each cluster.
 
@@ -112,12 +112,12 @@ class GMM:
         This is the maximization step of the EM algorithm. This step updates the
         parameters of the Gaussian mixture model. It updates the means and the 
         covariances and the weights of each distribution based on the responibilities 
-        that were calculated during the Estimation step.
+        that were calculated during the Expectation step.
 
         Parameters
         ----------
         r : ndarray
-            The resopnsibilities calculated during the Estimation step.
+            The resopnsibilities calculated during the Expectation step.
         data_points : ndarray
             A 2D numpy array of all the datapoints and the dimention of the data..
 
@@ -181,7 +181,7 @@ class GMM:
         The parameters of the distributions are randomly initialized.\n
         The EM algorithm iterates a total of max_iterations, unless the convergence
         criterium is met.\n
-        In each iteration the Estimation step and the Maximization step are executed.\n
+        In each iteration the Expectation step and the Maximization step are executed.\n
         The means of each iteration are compared with the means of the previous 
         iteration, to check for convergence.
 
